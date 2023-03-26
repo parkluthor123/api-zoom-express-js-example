@@ -1,0 +1,44 @@
+<style>
+     #meeting-info-indication{
+          display: none !important;
+     }
+</style>
+
+<main>
+     <h1>Zoom Meeting SDK Sample Express JS</h1>
+
+     <button onClick="enterOnMeeting()">Join Meeting</button>
+</main>
+<script src="https://source.zoom.us/2.10.1/lib/vendor/react.min.js"></script>
+<script src="https://source.zoom.us/2.10.1/lib/vendor/react-dom.min.js"></script>
+<script src="https://source.zoom.us/2.10.1/lib/vendor/redux.min.js"></script>
+<script src="https://source.zoom.us/2.10.1/lib/vendor/redux-thunk.min.js"></script>
+<script src="https://source.zoom.us/2.10.1/lib/vendor/lodash.min.js"></script>
+
+<!-- For Client View -->
+<script src="https://source.zoom.us/zoom-meeting-2.10.1.min.js"></script>
+<script src="/libs/ZoomAPI.js"></script>
+ <script>
+     function enterOnMeeting(){
+          e.preventDefault();
+          const data = {
+               sdkKey: 'YOUR_SDK_KEY',
+               sdkSecret: 'YOUR_SDK_SECRET',
+               meetingNumber: 'YOUR_MEETING_NUMBER',
+               passWord: 'YOUR_MEETING_PASSWORD',
+               userName: 'YOUR_USER_NAME',
+               userEmail: 'YOUR_USER_EMAIL',
+          }
+          
+          const sdk = new ZoomApi({
+               sdkKey: data.sdkKey,
+               sdkSecret: data.sdkSecret,
+               meetingNumber: data.meetingNumber,
+               passWord: data.passWord,
+               userName: data.userName,
+               userEmail: data.userEmail,
+          })
+
+          sdk.init()
+     }
+</script>
